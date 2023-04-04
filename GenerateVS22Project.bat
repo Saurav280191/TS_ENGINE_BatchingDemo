@@ -1,27 +1,21 @@
 @echo off
+ 
+echo Cloning TS_ENGINE...
+git clone https://github.com/Saurav280191/TS_ENGINE.git
+echo TS_ENGINE cloned complete.
+timeout /t 5 >nul
+PAUSE
 
-REM Fetching TS_ENGINE
-set TS_ENGINE_PATH=TS_ENGINE
-set TS_ENGINE_URL=https://github.com/Saurav280191/TS_ENGINE.git
+::if not exist "TS_ENGINE"(
+::echo TS_ENGINE was not cloned properly
+::PAUSE
+::exit 
+::)
 
-:: Check if the submodule is already added
-git submodule status %TS_ENGINE_PATH%
-
-if %errorlevel% neq 0 (
-  echo Submodule already exists
-) else (
-  :: Add the submodule
-  git submodule add %TS_ENGINE_URL% %TS_ENGINE_PATH%
-)
-
-:: Initialize the submodule
-git submodule update --init --recursive %TS_ENGINE_PATH%
-
-echo Added and initialized TS_ENGINE
 
 cd TS_ENGINE
 
-::Pull latest TS_ENGINE source
+REM Pulling latest TS_ENGINE source
 git pull origin main
 echo Pulled latest TS_ENGINE
 
@@ -44,6 +38,10 @@ REM Generate Solution
 cmake -G "Visual Studio 17 2022" -A=x64 -B=./build/x64/Debug -DCMAKE_ARCHITECTURE=x64 -DCMAKE_BUILD_TYPE=Debug
 REM Build Binaries
 cmake --build build/x64/Debug --config Debug
+
+copy "TS_ENGINE\vcpkg\installed\x64-windows\debug\bin\assimp-vc143-mtd.dll" "build\x64\Debug\bin"
+copy "TS_ENGINE\vcpkg\installed\x64-windows\debug\bin\pugixml.dll" "build\x64\Debug\bin"
+copy "TS_ENGINE\vcpkg\installed\x64-windows\debug\bin\zlibd1.dll" "build\x64\Debug\bin"
 
 xcopy "Assets" "build\x64\debug\Assets" /E /I /Y
 xcopy "Assets" "build\x64\debug\bin\Assets" /E /I /Y
