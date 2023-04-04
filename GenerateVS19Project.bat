@@ -27,12 +27,12 @@ REM Installing assimp
 cd vcpkg
 vcpkg install assimp:x64-windows --recurse
 ::vcpkg install spdlog:x64-windows --recurse
-echo Installed assimp, imgui, and spdlog. 
+echo Installed assimp. 
 
 cd ..
 cd ..
-echo To generate project,
-PAUSE
+::echo To generate project,
+::PAUSE
 
 REM Generate Solution
 cmake -G "Visual Studio 16 2019" -A=x64 -B=./build/x64/Debug -DCMAKE_ARCHITECTURE=x64 -DCMAKE_BUILD_TYPE=Debug
