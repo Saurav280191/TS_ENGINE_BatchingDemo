@@ -1,3 +1,12 @@
+# BUILD folder
+/build
+
+# Avoid pushing TS_ENGINE files on this repo
+/TS_ENGINE
+
+# vs Temp files
+.vs
+
 # Prerequisites
 *.d
 
