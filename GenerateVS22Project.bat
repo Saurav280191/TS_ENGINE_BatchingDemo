@@ -29,7 +29,7 @@ REM Installing vcpkg
 call Install-vcpkg.bat
 REM Completed vcpkg installation
 
-REM Installing assimp and spdlog
+REM Installing assimp
 cd vcpkg
 vcpkg install assimp:x64-windows --recurse
 ::vcpkg install spdlog:x64-windows --recurse
