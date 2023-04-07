@@ -4,20 +4,9 @@ echo Cloning TS_ENGINE...
 git clone https://github.com/Saurav280191/TS_ENGINE.git
 echo TS_ENGINE cloned complete.
 timeout /t 5 >nul
-PAUSE
-
-::if not exist "TS_ENGINE"(
-::echo TS_ENGINE was not cloned properly
-::PAUSE
-::exit 
-::)
-
-
 cd TS_ENGINE
-
-REM Pulling latest TS_ENGINE source
-git pull origin main
-echo Pulled latest TS_ENGINE
+git checkout tags/v1.0
+PAUSE
 
 REM Installing vcpkg
 call Install-vcpkg.bat
