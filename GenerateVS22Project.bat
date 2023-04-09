@@ -5,7 +5,7 @@ git clone https://github.com/Saurav280191/TS_ENGINE.git
 echo TS_ENGINE cloned complete.
 timeout /t 5 >nul
 cd TS_ENGINE
-git checkout tags/v1.0
+git checkout tags/v1.1
 PAUSE
 
 REM Generate Solution
