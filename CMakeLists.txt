@@ -58,8 +58,8 @@ source_group("Shaders" FILES ${ShadersSrc})
 
 # Add an additional library directory
 link_directories(
-${CMAKE_SOURCE_DIR}/TS_ENGINE/Dependencies/${CMAKE_ARCHITECTURE}-windows/debug/bin
-${CMAKE_SOURCE_DIR}/TS_ENGINE/vcpkg/installed/${CMAKE_ARCHITECTURE}-windows/debug/lib
+${CMAKE_SOURCE_DIR}/TS_ENGINE/Dependencies/${CMAKE_ARCHITECTURE}-windows/debug/lib
+${CMAKE_SOURCE_DIR}/TS_ENGINE/Dependencies/include/assimp/build/${CMAKE_ARCHITECTURE}/lib/${CMAKE_BUILD_TYPE}
 )
 
 add_executable (TS_BatchingDemo 
