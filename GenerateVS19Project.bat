@@ -6,7 +6,9 @@ echo TS_ENGINE cloned complete.
 timeout /t 5 >nul
 cd TS_ENGINE
 git checkout tags/v1.1
-PAUSE
+cd TS_ENGINE
+call GenerateVS19Project.bat
+cd ..
 
 REM Generate Solution
 cmake -G "Visual Studio 16 2019" -A=x64 -B=./build/x64/Debug -DCMAKE_ARCHITECTURE=x64 -DCMAKE_BUILD_TYPE=Debug
