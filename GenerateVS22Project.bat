@@ -7,9 +7,9 @@ git clone https://github.com/Saurav280191/TS_ENGINE.git
 timeout /t 5 >nul
 echo TS_ENGINE cloned complete.
 cd TS_ENGINE
-git pull
+git pull origin main
 git checkout tags/v1.1
-call GenerateVS22Project.bat
+::call GenerateVS22Project.bat
 
 REM Build BatchingDemo
 cd ..
