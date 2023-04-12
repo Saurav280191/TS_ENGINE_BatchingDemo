@@ -8,7 +8,7 @@ timeout /t 5 >nul
 echo TS_ENGINE cloned complete.
 cd TS_ENGINE
 git pull origin main
-git checkout tags/v1.1
+git checkout v1.1
 
 REM Build Assimp
 echo Building assimp
