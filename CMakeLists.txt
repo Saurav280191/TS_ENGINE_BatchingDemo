@@ -6,6 +6,7 @@ project(TS_BatchingDemo)
 
 message("Architecture: " ${CMAKE_ARCHITECTURE})
 message("BuildType: " ${CMAKE_BUILD_TYPE})
+message("Visual Studio version: ${MSVC_VERSION}")
 
 # Set output directories for all builds (Debug, Release, etc.)
 foreach( OUTPUTCONFIG ${CMAKE_CONFIGURATION_TYPES} )
@@ -94,5 +95,14 @@ ${CMAKE_SOURCE_DIR}/src
 target_link_libraries(TS_BatchingDemo LINK_PUBLIC TS_ENGINE
 opengl32.lib
 glfw3.lib
-assimp-vc143-mtd.lib
 )
+
+if(${MSVC_VERSION} STREQUAL "1929")
+    message("Visual Studio 2019 detected")
+	target_link_libraries(TS_BatchingDemo LINK_PUBLIC TS_ENGINE assimp-vc142-mtd.lib)
+elseif(${MSVC_VERSION} STREQUAL "2031")
+    message("Visual Studio 2022 detected")
+	target_link_libraries(TS_BatchingDemo LINK_PUBLIC TS_ENGINE assimp-vc143-mtd.lib)
+else()
+    message("Unsupported Visual Studio version")
+endif()
